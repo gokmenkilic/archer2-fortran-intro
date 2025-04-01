@@ -3,7 +3,8 @@
 1950s - Birth of Fortran: Before Fortran, programming involved tedious manual coding in assembly or machine language, requiring deep knowledge of a computer’s architecture. 
 Fortran was a game-changer, introducing features like loops, conditionals, and subroutines in a high-level form. The first version, FORTRAN I (1957), was implemented for the IBM 704 computer.
 
-Evolution:\ *FORTRAN II (1958)*: Added subroutines and functions, enhancing modularity. \
+Evolution: \
+*FORTRAN II (1958)*: Added subroutines and functions, enhancing modularity. \
 *FORTRAN IV (1960s)*: Improved portability across machines. \
 *Fortran 77 (1977)*: Standardized and widely adopted, introducing structured programming features. \
 *Modern Fortran (Fortran 90, 95, 2003, 2008, 2018*)*: Added object-oriented programming, parallel computing support (e.g., coarrays), and dynamic memory allocation, keeping it relevant for HPC.
