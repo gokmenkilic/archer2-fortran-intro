@@ -1,4 +1,4 @@
-# History
+## History
 
 1950s - Birth of Fortran: Before Fortran, programming involved tedious manual coding in assembly or machine language, requiring deep knowledge of a computer’s architecture. 
 Fortran was a game-changer, introducing features like loops, conditionals, and subroutines in a high-level form. The first version, FORTRAN I (1957), was implemented for the IBM 704 computer.
@@ -9,7 +9,7 @@ Evolution:
 *Fortran 77 (1977)*: Standardized and widely adopted, introducing structured programming features.
 *Modern Fortran (Fortran 90, 95, 2003, 2008, 2018*)*: Added object-oriented programming, parallel computing support (e.g., coarrays), and dynamic memory allocation, keeping it relevant for HPC.
 
-# Coarrays 
+## Coarrays 
 
 Coarrays are a feature introduced in Fortran 2008 (with roots in Fortran 95 proposals) to support parallel programming directly within the language. They extend the concept of arrays by adding a parallel dimension, allowing data to be distributed across multiple processing units (called "images" in Fortran terminology) in a single program, multiple data (SPMD) model. Coarrays enable developers to write parallel code naturally within Fortran, leveraging its strengths in numerical computation.
 
