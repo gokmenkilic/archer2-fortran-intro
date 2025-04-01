@@ -7,7 +7,7 @@ Evolution: \
 *FORTRAN II (1958)*: Added subroutines and functions, enhancing modularity. \
 *FORTRAN IV (1960s)*: Improved portability across machines. \
 *Fortran 77 (1977)*: Standardized and widely adopted, introducing structured programming features. \
-*Modern Fortran (Fortran 90, 95, 2003, 2008, 2018*)*: Added object-oriented programming, parallel computing support (e.g., coarrays), and dynamic memory allocation, keeping it relevant for HPC.
+*Modern Fortran (Fortran 90, 95, 2003, 2008, 2018)*: Added object-oriented programming, parallel computing support (e.g., coarrays), and dynamic memory allocation, keeping it relevant for HPC.
 
 ## Coarrays 
 
