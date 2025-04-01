@@ -6,12 +6,12 @@ program example2
   ! Note that the use statement must be before the implicit none,
   ! which should precede the declarations.
 
-  use iso_fortran_env, only : int64, real64
+  use iso_fortran_env, only : int64, real64, real32
   implicit none
 
   integer (kind = int64)   :: i = 100
   real    (kind = real64)  :: a = 1.0
-  complex (kind = real64)  :: z = (0.0, 1.0)
+  complex (kind = real32)  :: z = (0.0, 1.0)
 
   print *, "The value of i:  ", i
   print *, "The value of a:  ", a

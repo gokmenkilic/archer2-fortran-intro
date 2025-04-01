@@ -61,7 +61,7 @@ with `i-n` are integers and so on.
 
 Compile and run the accompanying program `exercise1.f90`. What's
 the problem and how should we avoid it? Check the compiler can trap
-the problem.
+the problem. - The problem was a typo 
 
 ### `kind` of type
 

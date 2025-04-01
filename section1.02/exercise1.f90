@@ -4,6 +4,6 @@ program exercise1
 
   integer :: ll = 1
 
-  print *, "The value of ll is: ", l1
+  print *, "The value of ll is: ", ll
 
 end program exercise1
