@@ -16,7 +16,7 @@ Coarrays are a feature introduced in Fortran 2008 (with roots in Fortran 95 prop
 A coarray is essentially an array that can be accessed and manipulated across different images (processes or threads) running concurrently. Each image has its own local copy of the coarray, and the programmer can explicitly move data between images or synchronize their execution.
 
 
-## Differences Between Coarrays and Regular Arrays
+## Differences Between Coarrays and Regular Arrays
 
 Distribution:
 
