@@ -25,6 +25,32 @@ program exercise3
   !
   !  Compute the first two approximations pi_0 and pi_1.
 
-  implicit none
+  
+
+  real :: a0, b0, t0, p0, pi0
+  real :: a1, b1, t1, p1, pi1
+
+  ! Initial values
+  a0 = 1.0
+  b0 = 1.0 / sqrt(2.0)
+  t0 = 0.25
+  p0 = 1.0
+
+  ! Compute pi_0
+  pi0 = (a0 + b0)**2 / (4.0 * t0)
+
+  ! Compute next iteration (n=1)
+  a1 = (a0 + b0) / 2.0
+  b1 = sqrt(a0 * b0)
+  t1 = t0 - p0 * (a0 - a1)**2
+  p1 = 2.0 * p0
+
+  ! Compute pi_1
+  pi1 = (a1 + b1)**2 / (4.0 * t1)
+
+  ! Output results
+  print *, 'pi_0 = ', pi0
+  print *, 'pi_1 = ', pi1
+
 
 end program exercise3
