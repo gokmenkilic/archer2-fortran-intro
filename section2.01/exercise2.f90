@@ -30,26 +30,87 @@ program exercise2
   use iso_fortran_env
   implicit none
 
+  ! integer, parameter :: kp = real64
+
+  ! real (kp), parameter :: pi = 4.0*atan(1.0)
+  ! real (kp), parameter :: w = 62.0
+  ! real (kp), parameter :: h = 30.0
+
+  ! real (kp) :: a, b, c
+  ! real (kp) :: conductance
+
+  ! a = 0.5*pi
+  ! b = 0.5*w
+  ! c = 0.5*h
+
+  ! ! First term only
+  ! conductance = (4.0/3.0)*b*(c**3)*(1.0 - 6.0*(c/b)*tanh(a*b/c)/a**5)
+
+  ! ! Some appropriate output might be ...
+  ! print *, "Value of w:       ", w
+  ! print *, "Value of h:       ", h
+  ! print *, "Value of pi:      ", pi
+  ! print *, "Approximation is: ", conductance
+
+  ! Define real64 precision
   integer, parameter :: kp = real64
 
-  real (kp), parameter :: pi = 4.0*atan(1.0)
-  real (kp), parameter :: w = 62.0
-  real (kp), parameter :: h = 30.0
+  ! Constants
+  real(kp), parameter :: pi = 4.0_kp * atan(1.0_kp)
+  real(kp), parameter :: w = 62.0_kp
+  real(kp), parameter :: h = 30.0_kp
 
-  real (kp) :: a, b, c
-  real (kp) :: conductance
+  ! Variables
+  real(kp) :: a_k, b, c
+  real(kp) :: conductance, series_sum, term
+  integer :: k, max_terms, print_interval
 
-  a = 0.5*pi
-  b = 0.5*w
-  c = 0.5*h
+  ! Initialize parameters
+  b = 0.5_kp * w  ! b = 31
+  c = 0.5_kp * h  ! c = 15
+  max_terms = 1000
+  print_interval = 20
+  series_sum = 0.0_kp
 
-  ! First term only
-  conductance = (4.0/3.0)*b*(c**3)*(1.0 - 6.0*(c/b)*tanh(a*b/c)/a**5)
+  ! Forward summation
+  print *, "Forward summation:"
+  do k = 1, max_terms
+    a_k = (2.0_kp * real(k, kp) - 1.0_kp) * pi / 2.0_kp
+    term = tanh(a_k * b / c) / (a_k**5)
+    series_sum = series_sum + term
 
-  ! Some appropriate output might be ...
-  print *, "Value of w:       ", w
-  print *, "Value of h:       ", h
-  print *, "Value of pi:      ", pi
-  print *, "Approximation is: ", conductance
+    ! Print every 20 terms or the first term
+    if (mod(k, print_interval) == 0 .or. k == 1) then
+      conductance = (4.0_kp / 3.0_kp) * b * (c**3) * &
+                    (1.0_kp - 6.0_kp * (c / b) * series_sum)
+      print *, "Terms: ", k, " Conductance: ", conductance
+    end if
+  end do
+
+  ! Final forward result
+  conductance = (4.0_kp / 3.0_kp) * b * (c**3) * (1.0_kp - 6.0_kp * (c / b) * series_sum)
+  print *, "Final conductance (forward): ", conductance
+
+  ! Reset for reverse summation
+  series_sum = 0.0_kp
+
+  ! Reverse summation
+  print *, "Reverse summation:"
+  do k = max_terms, 1, -1
+    a_k = (2.0_kp * real(k, kp) - 1.0_kp) * pi / 2.0_kp
+    term = tanh(a_k * b / c) / (a_k**5)
+    series_sum = series_sum + term
+
+    ! Print every 20 terms (adjusted for reverse counting)
+    if (mod(max_terms - k + 1, print_interval) == 0 .or. k == 1) then
+      conductance = (4.0_kp / 3.0_kp) * b * (c**3) * &
+                    (1.0_kp - 6.0_kp * (c / b) * series_sum)
+      print *, "Terms: ", max_terms - k + 1, " Conductance: ", conductance
+    end if
+  end do
+
+  ! Final reverse result
+  conductance = (4.0_kp / 3.0_kp) * b * (c**3) * (1.0_kp - 6.0_kp * (c / b) * series_sum)
+  print *, "Final conductance (reverse): ", conductance
 
 end program exercise2
